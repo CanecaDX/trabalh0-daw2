@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body.nome) {
     res.status(400).send({
-      message: "Content can not be empty!",
+      message: "O conteúdo nao pode ser vazio",
     });
     return;
   }
@@ -28,7 +28,7 @@ exports.create = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while creating the Loja.",
+        message: err.message || "Ocorreu um erro na criacao da Loja.",
       });
     });
 };
@@ -44,7 +44,7 @@ exports.findAll = (req, res) => {
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while retrieving Lojas.",
+        message: err.message || "Ocorreu um erro na procura das Lojas.",
       });
     });
 };
@@ -59,13 +59,13 @@ exports.findOne = (req, res) => {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Cannot find Loja with id=${id}.`,
+          message: `Nao foi possivel achar a Loja com o id=${id}.`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error retrieving Loja with id=" + id,
+        message: "Erro ao tentar retirar a Loja com o id=" + id,
       });
     });
 };
@@ -79,17 +79,17 @@ exports.update = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Loja was updated successfully.",
+          message: "A loja foi atualizada com sucesso.",
         });
       } else {
         res.send({
-          message: `Cannot update Loja with id=${id}. Maybe Loja was not found or req.body is empty!`,
+          message: `Nao foi possivel fazer update na loja com o id=${id}. Talvez a loja nao foi encontrada ou req.body esta vazio!!`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Error updating Loja with id=" + id,
+        message: "Erro em atualizar a loja com o id=" + id,
       });
     });
 };
@@ -104,17 +104,17 @@ exports.delete = (req, res) => {
     .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Loja was deleted successfully!",
+          message: "a Loja foi deletada com sucesso!",
         });
       } else {
         res.send({
-          message: `Cannot delete Loja with id=${id}. Maybe Loja was not found!`,
+          message: `Nao foi possivel deletar a Loja com o id=${id}. Talvez a Loja não foi encontrada`,
         });
       }
     })
     .catch((err) => {
       res.status(500).send({
-        message: "Could not delete Loja with id=" + id,
+        message: "Nao foi possivel deletar a Loja com o id=" + id,
       });
     });
 };
@@ -126,11 +126,11 @@ exports.deleteAll = (req, res) => {
     truncate: false,
   })
     .then((nums) => {
-      res.send({ message: `${nums} Lojas were deleted successfully!` });
+      res.send({ message: `${nums} As Lojas foram deletadas com sucessos!` });
     })
     .catch((err) => {
       res.status(500).send({
-        message: err.message || "Some error occurred while removing all lojas.",
+        message: err.message || "Um erro ocorreu na remoção das Lojas.",
       });
     });
 };

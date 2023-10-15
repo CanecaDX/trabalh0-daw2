@@ -4,10 +4,10 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Cachorro
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.nome) {
+  // Validate request 
+  if (!req.body.titulo) {
     res.status(400).send({
-      message: "O conteudo nao pode ser vazio",
+      message: "O conteúdo nao pode ser vazio",
     });
     return;
   }

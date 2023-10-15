@@ -19,6 +19,7 @@ db.lojas = require("./loja.model.js")(sequelize, Sequelize);
 db.produtos = require("./produto.model.js")(sequelize, Sequelize);
 db.vendedores = require("./vendedor.model.js")(sequelize, Sequelize);
 
-db.pessoas.hasMany(db.cachorros);
-db.cachorros.belongsTo(db.pessoas);
+db.lojas.hasMany(db.produtos);
+db.produtos.hasMany(db.categorias)
+db.produtos.belongsTo(db.lojas);
 module.exports = db;

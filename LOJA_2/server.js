@@ -30,7 +30,10 @@ app.get("/", (req, res) => {
   res.json({ message: "Desenvolvimento de Aplicações WEB II" });
 });
 
+require("./routes/avaliacao.routes")(app);
+require("./routes/categoria.routes")(app);
 require("./routes/loja.routes")(app);
+require("./routes/produto.routes")(app);
 require("./routes/vendedor.routes")(app);
 
 const PORT = process.env.PORT || 8080;
