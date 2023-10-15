@@ -7,7 +7,7 @@ exports.create = (req, res) => {
   // Validate request
   if (!req.body.nome) {
     res.status(400).send({
-      message: "O conteúdo nao pode ser vazio",
+      message: "O conteúdo não pode ser vazio.",
     });
     return;
   }
